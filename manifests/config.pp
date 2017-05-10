@@ -3,6 +3,12 @@ class katello::config {
 
   $apache_version = $::apache::apache_version
 
+  if versioncmp($apache_version, '2.4') >= 0 {
+    $apache_options = 'Require all granted'
+  } else {
+    $apache_options = 'Allow from all'
+  }
+
   class { '::katello::config::pulp_client': }
 
   file { '/usr/share/foreman/bundler.d/katello.rb':
