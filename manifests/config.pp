@@ -1,6 +1,6 @@
 # Katello Config
 class katello::config {
-
+  include apache
   $apache_version = $::apache::apache_version
 
   if versioncmp($apache_version, '2.4') >= 0 {
