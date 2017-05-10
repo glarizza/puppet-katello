@@ -7,7 +7,7 @@ Alias /pub /var/www/html/pub
     PassengerEnabled off
   </IfModule>
   Options +FollowSymLinks +Indexes
-  <%= apache_options %>
+  <%= @apache_options %>
 </Location>
 
 Include /etc/pulp/vhosts80/*.conf
